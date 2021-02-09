@@ -1,4 +1,24 @@
-## AWS Wavelength Setup
+## AWS Wavelength
+
+You may get more info about Amazon Wavelength with below links. You need to opt-in to be able to use the service.
+
+https://aws.amazon.com/wavelength/
+
+https://aws.amazon.com/wavelength/getting-started/
+
+Once you opt-in, you can list the available zones with the below command:
+
+```shell
+aws ec2 describe-availability-zones --all-availability-zones | jq '.AvailabilityZones[] | select(.ZoneType == "wavelength-zone" and .State == "available") | .ZoneName'
+"us-east-1-wl1-atl-wlz-1"
+"us-east-1-wl1-bos-wlz-1"
+"us-east-1-wl1-dfw-wlz-1"
+"us-east-1-wl1-mia-wlz-1"
+"us-east-1-wl1-nyc-wlz-1"
+"us-east-1-wl1-was-wlz-1"
+```
+
+## Provision to AWS Wavelength
 
 This project creates a PoC environment for AWS Wavelenght service with the following setup:
 
